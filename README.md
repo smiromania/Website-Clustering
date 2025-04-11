@@ -15,7 +15,7 @@ The input dataset is a `.parquet` file containing a list of ~4384 website domain
 This undertaking displays the design of the anticipated productive deliverables:
 
 ### ✅ Solution Exposition / Presentation
-From my side, I looked at this as a task of visual hashing and maybe comparison. Instead of K-Means or DBSCAN, I used perceptual hashing to quantify the visual similarity between logos. The idea was to keep it low-tech and deterministic, and to scale up for an efficient performance on small to mid-size datasets.
+From my side, I looked at this as a task of visual hash and comparison. Instead of K-Means or DBSCAN, I used perceptual hashing to quantify the visual similarity between logos. The idea was to keep it low-tech and deterministic, and to scale up for an efficient performance on small to mid-size datasets.
 
 We played around with different icon tags-such as
 
