@@ -53,3 +53,5 @@ That is the full Python implementation of this repository which takes any.parque
 The output consists of multiple groups (lists of domains), each representing websites that share visually similar logos.
 
 
+### P.S. The threshold works somewhat like a **learning rate** from a neuron in a neural network.
+
