@@ -15,11 +15,11 @@ The input dataset is a `.parquet` file containing a list of ~4384 website domain
 This undertaking displays the design of the anticipated productive deliverables:
 
 ### ✅ Solution Exposition / Presentation
-From my side, I looked at this as a task of visual hash and comparison. Instead of K-Means or DBSCAN, I used perceptual hashing to quantify the visual similarity between logos. The idea was to keep it low-tech and deterministic, and to scale up for an efficient performance on small to mid-size datasets.
+From my side, I looked at this as a task of visual hash and comparison. Instead of K-Means or DBSCAN, I used perceptual hashing to quantify the visual similarity between logos. The idea was to keep it low-tech and deterministic, and to scale up for an efficient performance on small to mid-size datasets (it still took 2 hours to run the model).
 
 We played around with different icon tags-such as
 
-`<link rel="icon">`,`apple-touch-icon`, and what not-before finally deciding on hash, which gave the intewriting and consistent outputs. It provides clarity and simplicity but still possesses strong accuracy.
+`<link rel="icon">`,`apple-touch-icon`, and what not-before finally deciding on hash, which gave the intewriting and consistent outputs. It provides clarity and simplicity with a fair accuracy.
 
 ### 📊 Output
 - Over **97% of the websites** have logos extracted from more than 4300 domains. Only **2 Failures** were recorded while extracting the logos.
@@ -27,10 +27,10 @@ We played around with different icon tags-such as
 - Some logos were unique and resulted in single-entry groups, which is expected. Or they were to small resolution to be compared with the average resolution images.
 - The only known mis-clusterings occurred where logos were of a really low resolution.
 
-The output contains a grouped list of domains and can be exported as JSON or printed directly.
+The output contains a grouped list of domains in a "*.txt" file.
 
 ### 🧠 Code and Logic
-It is thus the full Python implementation of this repository which takes any.parquet file with website domains, constructs URLs automatically, gets logos, hashes them, and groups similar logos together. It can be run against datasets of any size, is robust, and is clear.
+That is the full Python implementation of this repository which takes any.parquet file with website domains, constructs URLs automatically, gets logos, hashes them, and groups similar logos together. It can be run against datasets of any size, it can be more brutal or it can be thread more lightly.
 
 ## ✅ Results
 
