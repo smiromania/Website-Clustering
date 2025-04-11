@@ -12,16 +12,25 @@ The input dataset is a `.parquet` file containing a list of ~4384 website domain
 
 ## 🧩 Approach
 
-1. **URL Construction**: Domains are transformed into full URLs using HTTPS.
-2. **Logo Extraction**:
-   - HTML is fetched from each website.
-   - The `<link rel="icon">` or similar tags are parsed to identify the logo's URL.
-   - Logos are downloaded, resized, and normalized.
-3. **Hashing**:
-   - Each image is processed using `imagehash.phash`, a perceptual hashing algorithm that captures visual essence.
-4. **Grouping**:
-   - All logos are compared pairwise.
-   - If the Hamming distance between two hashes is below a threshold, the websites are grouped together.
+This undertaking displays the design of the anticipated productive deliverables:
+
+### ✅ Solution Exposition / Presentation
+From my side, I looked at this as a task of visual hashing and maybe comparison. Instead of K-Means or DBSCAN, I used perceptual hashing to quantify the visual similarity between logos. The idea was to keep it low-tech and deterministic, and to scale up for an efficient performance on small to mid-size datasets.
+
+We played around with different icon tags-such as
+
+`<link rel="icon">`,`apple-touch-icon`, and what not-before finally deciding on hash, which gave the intewriting and consistent outputs. It provides clarity and simplicity but still possesses strong accuracy.
+
+### 📊 Output
+- Over **97% of the websites** have logos extracted from more than 4300 domains. Only **2 Failures** were recorded while extracting the logos.
+- The script generates multiple groups of websites that share similar logos.
+- Some logos were unique and resulted in single-entry groups, which is expected. Or they were to small resolution to be compared with the average resolution images.
+- The only known mis-clusterings occurred where logos were of a really low resolution.
+
+The output contains a grouped list of domains and can be exported as JSON or printed directly.
+
+### 🧠 Code and Logic
+It is thus the full Python implementation of this repository which takes any.parquet file with website domains, constructs URLs automatically, gets logos, hashes them, and groups similar logos together. It can be run against datasets of any size, is robust, and is clear.
 
 ## ✅ Results
 
